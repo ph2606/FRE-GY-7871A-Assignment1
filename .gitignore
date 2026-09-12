@@ -1,0 +1,33 @@
+# Data is not committed. Everything under data/ is reproducible from scripts/,
+# including the frozen snapshot, retrieved from a pinned starter commit.
+data/
+
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+.DS_Store
+outputs/
+
+# Instructor-built data archive, distributed as a GitHub Release asset
+ark_filings_*.tar.gz
+download.log
+
+*.log
+submission/
+
+.venv-edgar/
+
+# Local report deliverable and preparation helpers; the PDF goes to Brightspace.
+/REPORT.md
+/report.pdf
+/docs/
+/requirements-edgartools.txt
+/scripts/05_build_notebook.py
+/scripts/06_edgartools_check.py
+/scripts/07_export_report.py
+/scripts/08_build_report.py
+/scripts/audit_acquisition.py
+/scripts/audit_mapping_reconciliation.py
