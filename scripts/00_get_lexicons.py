@@ -27,6 +27,9 @@ from src.config import (  # noqa: E402
 
 # Exact downloaded source bytes used for this submission; upstream drift is explicit.
 LM_EXPECTED_SHA256 = "e2d1328682bab7d2187684fb9f5420bb730401c9eefc00daf835edd203f4859d"
+LM_RELEASE = "March 2026"
+LM_SOURCE_FILENAME = "Loughran-McDonald_MasterDictionary_1993-2025.csv"
+LM_DOCUMENTATION_URL = "https://drive.google.com/file/d/1qMZ4WTDv9bq2iYOxmMP5h_JgdLb46z_h/view?usp=sharing"
 
 def validate_lm(path, url, retrieved=False):
     payload = path.read_bytes()
@@ -36,6 +39,9 @@ def validate_lm(path, url, retrieved=False):
     from src.lexicons import load_master_dictionary, lm_word_lists
     master = load_master_dictionary(path)
     info = {"source_url": url, "sha256": digest, "rows": len(master),
+            "release": LM_RELEASE, "source_filename": LM_SOURCE_FILENAME,
+            "release_page": "https://sraf.nd.edu/loughranmcdonald-master-dictionary/",
+            "documentation_url": LM_DOCUMENTATION_URL,
             "active_sizes": {k: len(v) for k,v in lm_word_lists(master).items()},
             "checked_at_utc": datetime.now(timezone.utc).isoformat()}
     sidecar = path.with_suffix(".json")

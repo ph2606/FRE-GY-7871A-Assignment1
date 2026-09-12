@@ -5,7 +5,14 @@ Panagiotis Housos | ph2606 | Fall 2026
 [View the executed notebook](assignment1.ipynb) for the analysis of negative
 sentiment and uncertainty in 2021-2025 ARK-company filings. It contains Tables
 1-6, Figure 1, methods, interpretation, and disclosed sensitivity checks.
-The final sample contains 1,134 filings from 72 firms.
+The market-analysis sample contains 1,134 filings from 72 firms. A separate
+holdings screen ranks uncertainty outside Item 1A by its 2025 level and annual
+rise or fall, with 10-K and 10-Q shown separately. Each analysis includes an
+investment implication, and the notebook saves the complete rankings.
+The company appendix comes immediately before the rankings. It lists all 130
+holding identities with public-listing evidence, issuer identifiers, funds,
+exclusion reasons and filing counts after each filter. Market eligibility and
+text-ranking eligibility are shown separately.
 
 This repository contains the notebook with saved outputs, analysis and download
 code, supporting tests and environment files, and [AI_USE.md](AI_USE.md).
@@ -50,10 +57,17 @@ separate trial files, as requested in the starter instructions.
 `requirements-lock.txt` pins the tested environment; `requirements.txt` lists
 direct dependencies. `python scripts/04_analyze.py --check` checks local input
 readiness. Running that script without `--check` executes the core analysis
-without opening Jupyter. The notebook also runs the disclosed sensitivities.
+without opening Jupyter. The notebook also runs the disclosed sensitivities
+and Item 1A extraction, with local caches checked against their source files.
 
+The dictionary is the authors' **March 2026 release**, originally named
+`Loughran-McDonald_MasterDictionary_1993-2025.csv`, verified against a fresh
+download from the [official release page](https://sraf.nd.edu/loughranmcdonald-master-dictionary/).
+Script 00 checks its exact SHA256 and records the release in local provenance.
 The notebook explains the active dictionary's 2,345 negative words versus the
 starter's 2,355 nonzero flags, reconciles the holdings and filing counts, and
 defines the exact scoring, event windows, controls, and inference. These are
-retrospective associations using full-sample document frequencies. All 81
-automated tests pass; saved notebook cells contain no execution errors.
+retrospective associations using full-sample document frequencies. The holdings
+rankings use word percentages and do not require IDF or market-data availability.
+Their investment suggestions are historical research decisions; the market
+tests do not establish a profitable trading rule.

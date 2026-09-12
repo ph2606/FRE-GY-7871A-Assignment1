@@ -23,6 +23,7 @@ submission/
 # Local report deliverable and preparation helpers; the PDF goes to Brightspace.
 /REPORT.md
 /report.pdf
+/Panagiotis_Housos_Report.pdf
 /docs/
 /requirements-edgartools.txt
 /scripts/05_build_notebook.py
